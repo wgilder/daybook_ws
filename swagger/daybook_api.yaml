@@ -1,0 +1,33 @@
+swagger: "2.0"
+info:
+  title: Daybook API
+  description: Backend API for managing Daybook data
+  version: 0.0.1
+
+host: api.streifen.us
+basePath: /v1
+schemes:
+  - http
+
+consumes:
+  - application/json
+  - application/xml
+produces:
+  - application/json
+  - application/xml
+
+paths:
+  /about:
+    get:
+      operationId: streifen.ws.daybook.get_about
+      description: Basic page showing API information
+      responses:
+        '200':
+          description: A JSON object holding API information
+  /version:
+    get:
+      operationId: streifen.ws.daybook.get_version
+      description: Daybook API Version
+      responses:
+        '200':
+          description: A JSON object holding API information

@@ -1,0 +1,28 @@
+# Puppet Pipelines demo, v6
+walter.gildersleeve/daybook_ws:
+  Env:
+    - DAYBOOKW_PORT_DEST: "9000"
+  PreBuild:
+  Build:
+#    - echo docker login -u "$DISTELLI_DOCKER_USERNAME" -p "$DISTELLI_DOCKER_PW" $DISTELLI_DOCKER_ENDPOINT
+    - docker login -u "$DISTELLI_DOCKER_USERNAME" -p "$DISTELLI_DOCKER_PW" $DISTELLI_DOCKER_ENDPOINT
+#    - echo docker build --quiet=false -t "$DISTELLI_DOCKER_REPO" $DISTELLI_DOCKER_PATH
+    - docker build --quiet=false -t "$DISTELLI_DOCKER_REPO" $DISTELLI_DOCKER_PATH
+#    - echo docker tag "$DISTELLI_DOCKER_REPO" "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM"
+    - docker tag "$DISTELLI_DOCKER_REPO" "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM"
+#    - echo docker push "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM"
+    - docker push "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM"
+  PkgInclude:
+  PkgExclude:
+  PreInstall:
+    - sudo docker login -u "$DISTELLI_DOCKER_USERNAME" -p "$DISTELLI_DOCKER_PW" $DISTELLI_DOCKER_ENDPOINT
+  PostInstall:
+  Exec:
+### Docker Exec Commands ###
+    - cid=$(uuidgen)
+    - trap 'sudo docker stop $cid' SIGTERM
+#    - echo sudo -E docker run --name=$cid -p $DAYBOOKW_PORT_DEST:80 $DISTELLI_DOCKER_ENVS --rm=true $DISTELLI_DOCKER_PORTS "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM" &
+    - sudo -E docker run --name=$cid -p $DAYBOOKW_PORT_DEST:80 $DISTELLI_DOCKER_ENVS --rm=true $DISTELLI_DOCKER_PORTS "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM" &
+    - wait
+    - "true"
+### End Docker Exec Commands ###
