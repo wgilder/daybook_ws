@@ -4,7 +4,7 @@ class Version(object):
         return "Another Message"
 
     def version(self):
-        return "0.0.1"
+        return "0.0.2"
 
     def build_number(self):
         return "1"
