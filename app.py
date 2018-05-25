@@ -1,4 +1,4 @@
-import connexion
+from flask import Flask
+app = Flask(__name__)
+from streifen.ws.daybook import routes
 
-app = connexion.FlaskApp(__name__, specification_dir='swagger/')
-app.add_api('daybook_api.yaml')
