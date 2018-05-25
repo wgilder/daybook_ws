@@ -1,7 +1,7 @@
 
 class Version(object):
     def message(self):
-        return "Default Message"
+        return "Another Message"
 
     def version(self):
         return "0.0.1"
