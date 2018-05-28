@@ -22,7 +22,7 @@ walter.gildersleeve/daybook_ws:
     - cid=$(uuidgen)
     - trap 'sudo docker stop $cid' SIGTERM
 #    - echo sudo -E docker run --name=$cid -p $DAYBOOKW_PORT_DEST:80 $DISTELLI_DOCKER_ENVS --rm=true $DISTELLI_DOCKER_PORTS "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM" &
-    - sudo -E docker run --name=$cid -p $DAYBOOKW_PORT_DEST:80 $DISTELLI_DOCKER_ENVS --rm=true $DISTELLI_DOCKER_PORTS "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM" &
+    - sudo -E docker run --name=$cid  --env DAYBOOK_API_BUILD=$DISTELLI_BUILDNUM -p $DAYBOOKW_PORT_DEST:80 $DISTELLI_DOCKER_ENVS --rm=true $DISTELLI_DOCKER_PORTS "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM" &
     - wait
     - "true"
 ### End Docker Exec Commands ###
