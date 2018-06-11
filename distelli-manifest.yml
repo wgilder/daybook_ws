@@ -7,15 +7,15 @@ walter.gildersleeve/daybook-sa_ws:
     - echo Building the Daybook WS Application
     - docker login -u "$DISTELLI_DOCKER_USERNAME" -p "$DISTELLI_DOCKER_PW" $DISTELLI_DOCKER_ENDPOINT
     - docker build --quiet=false -t "$DISTELLI_DOCKER_REPO" $DISTELLI_DOCKER_PATH
-    - docker echo Finished building the Daybook WS application. Starting to tag...
+    - echo Finished building the Daybook WS application. Starting to tag...
     - docker tag "$DISTELLI_DOCKER_REPO" "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM"
-    - docker echo Finished tagging the Daybook WS application. Starting to push...
+    - echo Finished tagging the Daybook WS application. Starting to push...
     - docker push "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM"
-    - docker echo Push complete.
-    - echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    - echo ~~~ Use the following command to start the Docker container:
+    - echo Push complete.
+    - echo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+    - echo +++ Use the following command to start the Docker container
     - echo    sudo -E docker run --name=dba-sa --env DOCKER_HOSTNAME=$HOSTNAME --env DAYBOOK_API_PROTOCOL=$DBAPI_PROTOCOL --env DAYBOOK_API_URL=$DBAPI_URL --env DAYBOOK_API_PORT=$DBAPI_PORT -p $DAYBOOK_PORT_DEST:80 $DISTELLI_DOCKER_ENVS --rm=true $DISTELLI_DOCKER_PORTS "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM"
-    - echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    - echo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
   PkgInclude:
   PkgExclude:
   PreInstall:
