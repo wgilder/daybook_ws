@@ -1,7 +1,7 @@
 # Puppet Pipelines demo, v6
 walter.gildersleeve/daybook-sa_ws:
   Env:
-    - DAYBOOKW_PORT_DEST: "9001"
+    - DAYBOOKW_PORT_DEST: '9001'
   PreBuild:
   Build:
     - echo Building the Daybook WS Application
@@ -14,7 +14,7 @@ walter.gildersleeve/daybook-sa_ws:
     - echo Push complete.
     - echo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
     - echo +++ Use the following command to start the Docker container
-    - echo    sudo -E docker run --name=dba-sa --env DOCKER_HOSTNAME=\$HOSTNAME -p $DAYBOOKW_PORT_DEST:80 $DISTELLI_DOCKER_ENVS --rm=true $DISTELLI_DOCKER_PORTS "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM"
+    - echo    sudo -E docker run --name=dba-sa --env DOCKER_HOSTNAME=\$HOSTNAME -d -p $DAYBOOKW_PORT_DEST:80 $DISTELLI_DOCKER_ENVS --rm=true $DISTELLI_DOCKER_PORTS "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM"
     - echo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
   PkgInclude:
   PkgExclude:
