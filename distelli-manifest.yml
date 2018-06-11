@@ -12,10 +12,10 @@ walter.gildersleeve/daybook-sa_ws:
     - echo Finished tagging the Daybook WS application. Starting to push...
     - docker push "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM"
     - echo Push complete.
-    - echo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
-    - echo +++ Use the following command to start the Docker container
+    - echo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    - echo +++ Use the following command to start the Docker container --
     - echo    sudo -E docker run --name=dba-sa --env DOCKER_HOSTNAME=\$HOSTNAME -d -p $DAYBOOKW_PORT_DEST:80 $DISTELLI_DOCKER_ENVS --rm=true $DISTELLI_DOCKER_PORTS "$DISTELLI_DOCKER_REPO:$DISTELLI_BUILDNUM"
-    - echo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+    - echo ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   PkgInclude:
   PkgExclude:
   PreInstall:
