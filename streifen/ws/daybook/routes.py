@@ -1,10 +1,13 @@
 from flask import render_template
 from app import app
 from streifen.ws.daybook.version import Version
-import pystache
+
+def _render(obj):
+    attrs = obj.attributes()
+    template = obj.template_name()
+    return render_template(template, **attrs)
 
 @app.route('/v1/version')
 def version():
     v = Version()
-    renderer = pystache.Renderer()
-    return renderer.render(v)
+    return _render(v)

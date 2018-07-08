@@ -1,12 +1,10 @@
+from streifen.ws.daybook.base import Base
 
 import os
 
-class Version(object):
+class Version(Base):
     def __init__(self):
-        if ("DAYBOOK_API_BUILD" in os.environ):
-            self._build_number = os.environ["DAYBOOK_API_BUILD"]
-        else:
-            self._build_number = "-1"
+        super().__init__("version.html")
 
     def message(self):
         return "Another Message"
@@ -14,11 +12,18 @@ class Version(object):
     def version(self):
         return "0.0.2"
 
-    def build_number(self):
-        return self._build_number
-
     def author(self):
         return "Walter Gildersleeve"
 
     def email(self):
         return "wmg@puppet.com"
+
+    def attributes(self):
+        d = super().attributes()
+    
+        d["message"] = self.message()
+        d["version"] = self.version()
+        d["author"] = self.author()
+        d["email"] = self.email()
+
+        return d
