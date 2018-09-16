@@ -1,5 +1,6 @@
 from flask import render_template
 from app import app
+from ddtrace import tracer
 from streifen.ws.daybook.version import Version
 
 def _render(obj):
@@ -7,6 +8,7 @@ def _render(obj):
     template = obj.template_name()
     return render_template(template, **attrs)
 
+@tracer.wrap()
 @app.route('/v1/version')
 def version():
     v = Version()
