@@ -7,7 +7,7 @@ class Version(Base):
         super().__init__("version.html")
 
     def message(self):
-        return "Another Message"
+        return "Default Message from the API"
 
     def version(self):
         return "0.0.2"
@@ -25,5 +25,6 @@ class Version(Base):
         d["version"] = self.version()
         d["author"] = self.author()
         d["email"] = self.email()
+        d["build_number"] = self.build_number()
 
         return d

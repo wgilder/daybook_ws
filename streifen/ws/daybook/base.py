@@ -9,7 +9,7 @@ class Base(object):
         self._template_name = template_name
 
         if ("DAYBOOK_API_BUILD" in os.environ):
-            self._build_number = os.environ["DAYBOOK_API_BUILD"] or "-1"
+            self._build_number = os.environ["DAYBOOK_API_BUILD"] or "0"
         else:
             self._build_number = "-1"
 
