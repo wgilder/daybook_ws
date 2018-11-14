@@ -6,6 +6,12 @@ class UserDao(object):
     def get_user(self, email = None, id = -1):
         pass
 
+    def update_user(self, user):
+        pass
+    
+    def create_user(self, email):
+        pass
+
     def get_item(self, user, id):
         pass
     
