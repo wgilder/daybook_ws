@@ -3,5 +3,11 @@ class UserDao(object):
     def __init__(self):
         pass
 
-    def get_user(email = None, id = -1):
+    def get_user(self, email = None, id = -1):
+        pass
+
+    def get_item(self, user, id):
+        pass
+    
+    def get_items(self, filter):
         pass
