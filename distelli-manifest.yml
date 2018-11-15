@@ -1,5 +1,5 @@
 # Puppet Pipelines demo, v6
-walter.gildersleeve/daybook_ws-rework:
+walter.gildersleeve/daybook_ws:
   Env:
     - DAYBOOKW_PORT_DEST: "9000"
   PreBuild:
