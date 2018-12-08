@@ -6,6 +6,9 @@ class UserDao(object):
     def get_user(self, email = None, id = -1):
         pass
 
+    def get_users(self, filter, page = 1):
+        pass
+
     def update_user(self, user):
         pass
     
@@ -15,5 +18,5 @@ class UserDao(object):
     def get_item(self, user, id):
         pass
     
-    def get_items(self, filter):
+    def get_items(self, filter, page = 1):
         pass
